@@ -20,33 +20,32 @@ public class MainApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		List<String> stringList = new ArrayList<String>();
-		
-		
-		stringList.add("Pau");
-		stringList.add("Marc");
-		stringList.add("Ari");
-		stringList.add("Albert");
-		stringList.add("Ash");
-		stringList.add("Ara");
-		
-		retornaLlistaStrings(stringList);
-		
-		
-		
-	
-	}
-	
-	public static List<String> retornaLlistaStrings(List<String> stringList) {
 
-		List<String> list = stringList;
+		List<Integer> integerList = new ArrayList<Integer>();
+
+		integerList.add(1);
+		integerList.add(33);
+		integerList.add(4);
+		integerList.add(6);
+		integerList.add(5);
+		integerList.add(25);
+
+		retornaLlista(integerList);
+
+	}
+
+	public static List<String> retornaLlista(List<Integer> integerList) {
+
+		List<Integer> list = integerList;
 
 		List<String> auxList = new ArrayList<String>();
 
-		list.forEach(s -> {
-			if (s.substring(0, 1).equals("A") && (s.length() == 3))
-				auxList.add(s);
+		list.forEach(i -> {
+			if (i % 2 == 0)
+				auxList.add("o" + String.valueOf(i) + ",");
+			else
+				auxList.add("e" + String.valueOf(i) + ",");
+
 		}
 
 		);
@@ -56,7 +55,6 @@ public class MainApp {
 		return auxList;
 
 	}
-	
 
 }
 
