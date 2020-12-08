@@ -30,6 +30,8 @@ public class MainApp {
 		stringList.add("Albert");
 		stringList.add("Ash");
 		stringList.add("Ara");
+		stringList.add("Oriol");
+		stringList.add("Joan");
 		
 		retornaLlistaStrings(stringList);
 		
@@ -45,7 +47,7 @@ public class MainApp {
 		List<String> auxList = new ArrayList<String>();
 
 		list.forEach(s -> {
-			if (s.substring(0, 1).equals("A") && (s.length() == 3))
+			if (s.contains("o") )
 				auxList.add(s);
 		}
 
