@@ -47,7 +47,7 @@ public class MainApp {
 		List<String> auxList = new ArrayList<String>();
 
 		list.forEach(s -> {
-			if (s.contains("o") && s.length()>5 )
+			if (s.contains("o") && s.length()>=5 )
 				auxList.add(s);
 		}
 
