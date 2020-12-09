@@ -8,7 +8,11 @@
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+
+
 import java.util.Collections;
 
 
@@ -21,32 +25,25 @@ public class MainApp {
 	 */
 	public static void main(String[] args) {
 		
-		List<String> stringList = new ArrayList<String>();
+		List<String> stringList = Arrays.asList("peter", "anna", "mike","Oriol","Joan", "xenia", "Ari", "Ash", "Ara");
+		System.out.println("Llista de noms: " + stringList);
+		
+		System.out.println("Execució programa amb Lambdas. Llista de noms filtrats:");
+		Test testLambdas = s -> s.contains("o");
+		retornaLlistaStringsLambda(stringList, testLambdas);
 		
 		
-		stringList.add("Pau");
-		stringList.add("Marc");
-		stringList.add("Ari");
-		stringList.add("Albert");
-		stringList.add("Ash");
-		stringList.add("Ara");
-		stringList.add("Oriol");
-		stringList.add("Joan");
-		
-		retornaLlistaStrings(stringList);
-		
+				
 		
 		
 	
 	}
 	
-	public static List<String> retornaLlistaStrings(List<String> stringList) {
+	public static List<String> retornaLlistaStringsLambda(List<String> stringList, Test test) {
 
-		List<String> list = stringList;
+				List<String> auxList = new ArrayList<String>();
 
-		List<String> auxList = new ArrayList<String>();
-
-		list.forEach(s -> {
+		stringList.forEach(s -> {
 			if (s.contains("o") )
 				auxList.add(s);
 		}
@@ -59,6 +56,10 @@ public class MainApp {
 
 	}
 	
+	@FunctionalInterface
+	public interface Test {
+		boolean applyTest(String paraula);
+	}
 
 }
 
