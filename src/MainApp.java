@@ -10,10 +10,11 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-
-
+import java.util.stream.Collectors;
 import java.util.Collections;
+
+
+
 
 
 public class MainApp {
@@ -32,12 +33,31 @@ public class MainApp {
 		Test testLambdas = s -> s.contains("o");
 		retornaLlistaStringsLambda(stringList, testLambdas);
 		
-		
+		System.out.println("Execució programa amb Streams i Lambdas. Llista de noms filtrats:");
+		Test testStreams = s -> s.contains("o");
+		retornaLlistaStringsStreams(stringList, testStreams);
 				
 		
 		
 	
 	}
+	
+	
+	public static List<String> retornaLlistaStringsStreams(List<String> stringList, Test testStreams) {
+
+		List<String> filteredList = stringList.stream().filter(s -> testStreams.applyTest(s))
+
+				.map(s -> {
+					System.out.println(s);
+					return s;
+				})
+
+				.collect(Collectors.toList());
+
+		return filteredList;
+
+	}
+	
 	
 	public static List<String> retornaLlistaStringsLambda(List<String> stringList, Test test) {
 
