@@ -49,12 +49,12 @@ public class MainApp {
 
 	}
 
-	public static List<String> retornaLlistaStringsLambda(List<String> stringList, Test test) {
+	public static List<String> retornaLlistaStringsLambda(List<String> stringList, Test testLambdas) {
 
 		List<String> auxList = new ArrayList<String>();
 
 		stringList.forEach(s -> {
-			if (s.contains("o"))
+			if (testLambdas.applyTest(s))
 				auxList.add(s);
 		}
 
