@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -8,40 +9,32 @@
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Collections;
 
+import java.util.Collections;
 
 public class MainApp {
 
-	
-	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
-		List<Integer> integerList = new ArrayList<Integer>();
+		List<Integer> integerList = Arrays.asList(1, 33, 4, 5, 25, 43);
+		System.out.println("Llista de valors: " + integerList);
+		Test testLambdas = i -> i % 2 == 0;
 
-		integerList.add(1);
-		integerList.add(33);
-		integerList.add(4);
-		integerList.add(6);
-		integerList.add(5);
-		integerList.add(25);
-
-		retornaLlista(integerList);
+		retornaLlistaEntersLambda(integerList, testLambdas);
 
 	}
 
-	public static List<String> retornaLlista(List<Integer> integerList) {
-
-		List<Integer> list = integerList;
+	public static List<String> retornaLlistaEntersLambda(List<Integer> integerList, Test testLambdas) {
 
 		List<String> auxList = new ArrayList<String>();
 
-		list.forEach(i -> {
-			if (i % 2 == 0)
+		integerList.forEach(i -> {
+			if (testLambdas.applyTest(i))
 				auxList.add("o" + String.valueOf(i) + ",");
 			else
 				auxList.add("e" + String.valueOf(i) + ",");
@@ -54,6 +47,11 @@ public class MainApp {
 
 		return auxList;
 
+	}
+
+	@FunctionalInterface
+	public interface Test {
+		boolean applyTest(Integer value);
 	}
 
 }
