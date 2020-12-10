@@ -21,14 +21,16 @@ public class MainApp {
 	 */
 	public static void main(String[] args) {
 
-		List<String> stringList = Arrays.asList("gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre");
-		System.out.println("Llista de mesos de l'any: " + stringList);
+		Foo foo = () ->  3.1415;				
+		System.out.println(foo.getPiValue());
 
-		System.out.println("Execució programa.");
-		stringList.forEach( System.out :: println);
+	}
+	
+	
+	@FunctionalInterface
+	public interface Foo {
+		double getPiValue () ;
 		
-		
-
 	}
 
 	
