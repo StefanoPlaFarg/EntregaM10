@@ -21,56 +21,17 @@ public class MainApp {
 	 */
 	public static void main(String[] args) {
 
-		List<String> stringList = Arrays.asList("peter", "anna", "mike", "Oriol", "Joan", "xenia", "Ari", "Ash", "Ara");
-		System.out.println("Llista de noms: " + stringList);
+		List<String> stringList = Arrays.asList("gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre");
+		System.out.println("Llista de mesos de l'any: " + stringList);
 
-		System.out.println("Execució programa amb Lambdas. Llista de noms filtrats:");
-		Test testLambdas = s -> s.contains("o") && s.length() >= 5;
-		retornaLlistaStringsLambda(stringList, testLambdas);
-
-		System.out.println("Execució programa amb Streams i Lambdas. Llista de noms filtrats:");
-		Test testStreams = s -> s.contains("o") && s.length() >= 5;
-		retornaLlistaStringsStreams(stringList, testStreams);
+		System.out.println("Execució programa.");
+		stringList.forEach(s -> System.out.println(s));
+		
+		
 
 	}
 
-	public static List<String> retornaLlistaStringsStreams(List<String> stringList, Test testStreams) {
-
-		List<String> filteredList = stringList.stream().filter(s -> testStreams.applyTest(s))
-
-				.map(s -> {
-					System.out.println(s);
-					return s;
-				})
-
-				.collect(Collectors.toList());
-
-		return filteredList;
-
-	}
-
-	public static List<String> retornaLlistaStringsLambda(List<String> stringList, Test testLambdas) {
-
-		List<String> auxList = new ArrayList<String>();
-
-		stringList.forEach(s -> {
-			if (testLambdas.applyTest(s))
-				auxList.add(s);
-		}
-
-		);
-
-		auxList.forEach(s -> System.out.println(s));
-
-		return auxList;
-
-	}
-
-	@FunctionalInterface
-	public interface Test {
-		boolean applyTest(String paraula);
-	}
-
+	
 }
 
 
