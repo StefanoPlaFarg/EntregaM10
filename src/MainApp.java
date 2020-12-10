@@ -25,7 +25,7 @@ public class MainApp {
 		System.out.println("Llista de mesos de l'any: " + stringList);
 
 		System.out.println("Execució programa.");
-		stringList.forEach(s -> System.out.println(s));
+		stringList.forEach( System.out :: println);
 		
 		
 
