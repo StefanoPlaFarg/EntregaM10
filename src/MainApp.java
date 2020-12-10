@@ -21,15 +21,25 @@ public class MainApp {
 	 */
 	public static void main(String[] args) {
 
-		Foo foo = () ->  3.1415;				
-		System.out.println(foo.getPiValue());
+		Foo foo = s ->  {
+			String p ="";
+			for (int i=s.length()-1; i>=0 ;i--) {
+				
+				p = p + s.charAt(i);
+			}
+			
+			return p;
+		};	
+		
+		System.out.println("Paraula a revertir: paraula");
+		System.out.println("El resultat és: " + foo.reverse("paraula"));
 
 	}
 	
 	
 	@FunctionalInterface
 	public interface Foo {
-		double getPiValue () ;
+		String reverse (String paraula) ;
 		
 	}
 
